@@ -1,0 +1,43 @@
+﻿@model WebApp_MVC_L51_Razor_EF_27523.Models.tblEmployee
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Employee Form</h2>
+
+@using (Html.BeginForm("Create", "Employee",FormMethod.Post))
+{
+    <table>
+        <tr>
+            <td>Name:</td>
+            <td>@Html.TextBoxFor(x => x.name)</td> @*laymbda expression (x=>x.name)*@ @*@Html.TextBoxFor is Razor Controls*@ @*we can attach razor control to model property by using laymbda expression*@
+        </tr>
+        <tr>
+            <td>City:</td>
+            <td>@Html.TextBoxFor(x => x.city)</td> @*laymbda expression ko use karke model ki property se textbox ki value attach kar denge*@
+        </tr>
+        <tr>
+            <td>Age:</td>
+            <td>@Html.TextBoxFor(x => x.age)</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Save" /></td>
+            @*// submit  button control only work on action not method and it has power to postback togo to controller page*@
+        </tr>
+    </table>
+    <table style="background-color:gray;color:white;width:800px">
+        <tr style="background-color:purple">
+            <th>Emp ID</th><th>Emp Name</th><th>Emp City</th><th>Emp Age</th>
+        </tr>
+        @foreach (var a in ViewBag.emp) { 
+            <tr>
+                <td>@a.empid</td>
+                <td>@a.name</td>
+                <td>@a.city</td>
+                <td>@a.age</td>
+            </tr>
+         }
+    </table>
+
+}

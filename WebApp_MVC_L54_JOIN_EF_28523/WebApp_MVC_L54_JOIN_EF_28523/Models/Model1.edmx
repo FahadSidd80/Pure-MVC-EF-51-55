@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DB_L54_MVC_JOIN_EF_28523Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblCountry">
+          <Key>
+            <PropertyRef Name="cid" />
+          </Key>
+          <Property Name="cid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cname" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="tblEmployee">
+          <Key>
+            <PropertyRef Name="empid" />
+          </Key>
+          <Property Name="empid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="100" />
+          <Property Name="city" Type="varchar" MaxLength="100" />
+          <Property Name="age" Type="int" />
+          <Property Name="country" Type="int" />
+          <Property Name="state" Type="int" />
+        </EntityType>
+        <EntityType Name="tblState">
+          <Key>
+            <PropertyRef Name="sid" />
+          </Key>
+          <Property Name="cid" Type="int" />
+          <Property Name="sid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sname" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityContainer Name="DB_L54_MVC_JOIN_EF_28523ModelStoreContainer">
+          <EntitySet Name="tblCountry" EntityType="Self.tblCountry" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblEmployee" EntityType="Self.tblEmployee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblState" EntityType="Self.tblState" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DB_L54_MVC_JOIN_EF_28523Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tblCountry">
+          <Key>
+            <PropertyRef Name="cid" />
+          </Key>
+          <Property Name="cid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tblEmployee">
+          <Key>
+            <PropertyRef Name="empid" />
+          </Key>
+          <Property Name="empid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="city" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="age" Type="Int32" />
+          <Property Name="country" Type="Int32" />
+          <Property Name="state" Type="Int32" />
+        </EntityType>
+        <EntityType Name="tblState">
+          <Key>
+            <PropertyRef Name="sid" />
+          </Key>
+          <Property Name="cid" Type="Int32" />
+          <Property Name="sid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="DatabaseContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tblCountries" EntityType="Self.tblCountry" />
+          <EntitySet Name="tblEmployees" EntityType="Self.tblEmployee" />
+          <EntitySet Name="tblStates" EntityType="Self.tblState" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DB_L54_MVC_JOIN_EF_28523ModelStoreContainer" CdmEntityContainer="DatabaseContext">
+          <EntitySetMapping Name="tblCountries">
+            <EntityTypeMapping TypeName="DB_L54_MVC_JOIN_EF_28523Model.tblCountry">
+              <MappingFragment StoreEntitySet="tblCountry">
+                <ScalarProperty Name="cid" ColumnName="cid" />
+                <ScalarProperty Name="cname" ColumnName="cname" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblEmployees">
+            <EntityTypeMapping TypeName="DB_L54_MVC_JOIN_EF_28523Model.tblEmployee">
+              <MappingFragment StoreEntitySet="tblEmployee">
+                <ScalarProperty Name="empid" ColumnName="empid" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="age" ColumnName="age" />
+                <ScalarProperty Name="country" ColumnName="country" />
+                <ScalarProperty Name="state" ColumnName="state" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblStates">
+            <EntityTypeMapping TypeName="DB_L54_MVC_JOIN_EF_28523Model.tblState">
+              <MappingFragment StoreEntitySet="tblState">
+                <ScalarProperty Name="cid" ColumnName="cid" />
+                <ScalarProperty Name="sid" ColumnName="sid" />
+                <ScalarProperty Name="sname" ColumnName="sname" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,88 @@
+﻿@model WebAp_MVC_L53_EF_DDN_28523.Models.tblEmployee
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm("Create","Employee",FormMethod.Post))
+{
+    @Html.HiddenFor(x=>x.empid)
+<table>
+    <tr>
+        <td>Name:</td>
+        <td>@Html.TextBoxFor(x => x.name)</td>
+    </tr>
+    <tr>
+        <td>City:</td>
+        <td>@Html.TextBoxFor(x => x.city)</td>
+    </tr>
+    <tr>
+        <td>Age:</td>
+        <td>@Html.TextBoxFor(x => x.age)</td>
+    </tr>
+    <tr>
+        <td>Country:</td>
+        <td>@Html.DropDownListFor(x => x.country, new SelectList(ViewBag.ctr, "cid", "cname"), "--Select--", new { onchange = "StateBind()" })</td>
+        @*// dropdown ke onchange event ke pass controller pe jaane ki takat nahi hai iss liye hum JQuery use karenge this is last option*@
+    </tr>
+    <tr>
+        <td>State:</td>
+        <td>@Html.DropDownListFor(x => x.state, new SelectList(ViewBag.stt,"sid","sname"), "--Select--")</td>
+        
+    </tr>
+    <tr>
+        <td></td>
+        <td><input type="submit" value="@ViewBag.BT" /></td>
+    </tr>
+</table>
+    <table style="background-color:lightseagreen;color:black;width:800px">
+        <tr style="background-color:black;color:white">
+            <th>Emp ID</th>
+            <th>Emp Name</th>
+            <th>Emp City</th>
+            <th>Emp Age</th>
+            <th>Emp Country</th>
+            <th>Emp State</th>
+            <th>Action</th>
+            <th>Action</th>
+        </tr>
+        @foreach (var a in ViewBag.empdata) {
+            <tr>
+                <td>@a.empid</td>
+                <td>@a.name</td>
+                <td>@a.city</td>
+                <td>@a.age</td>
+                <td>@a.country</td>
+                <td>@a.state</td>
+                @*<td>@a.cname</td>
+                <td>@a.sname</td>*@
+                <td>@Html.ActionLink("Delete", "Del", new { empid = a.empid })</td>
+                <td>@Html.ActionLink("Edit", "Create", new { empid = a.empid })</td>
+            </tr>
+         }
+    </table>
+
+}
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script type="text/javascript">
+    function StateBind() {
+        $.ajax({
+            url: 'Employee/GetStateByCountry',
+            type: 'post',
+            data: { cid : $("#country").val() },
+            success: function (data) {
+                $("#state").empty();
+                $("#state").append($('<option></option>').html('--Select--').val(0));
+                for (var i = 0; i < data.length; i++) {
+                    $("#state").append($('<option></option>').html(data[i].sname).val(data[i].sid));
+                }
+            },
+            error: function () {
+                alert('State not found !!');
+            }
+        });
+    }
+  
+</script>

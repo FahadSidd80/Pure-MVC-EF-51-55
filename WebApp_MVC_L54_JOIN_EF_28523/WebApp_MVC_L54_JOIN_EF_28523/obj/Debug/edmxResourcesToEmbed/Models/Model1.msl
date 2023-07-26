@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DB_L54_MVC_JOIN_EF_28523ModelStoreContainer" CdmEntityContainer="DatabaseContext">
+    <EntitySetMapping Name="tblCountries">
+      <EntityTypeMapping TypeName="DB_L54_MVC_JOIN_EF_28523Model.tblCountry">
+        <MappingFragment StoreEntitySet="tblCountry">
+          <ScalarProperty Name="cid" ColumnName="cid" />
+          <ScalarProperty Name="cname" ColumnName="cname" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblEmployees">
+      <EntityTypeMapping TypeName="DB_L54_MVC_JOIN_EF_28523Model.tblEmployee">
+        <MappingFragment StoreEntitySet="tblEmployee">
+          <ScalarProperty Name="empid" ColumnName="empid" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="age" ColumnName="age" />
+          <ScalarProperty Name="country" ColumnName="country" />
+          <ScalarProperty Name="state" ColumnName="state" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblStates">
+      <EntityTypeMapping TypeName="DB_L54_MVC_JOIN_EF_28523Model.tblState">
+        <MappingFragment StoreEntitySet="tblState">
+          <ScalarProperty Name="cid" ColumnName="cid" />
+          <ScalarProperty Name="sid" ColumnName="sid" />
+          <ScalarProperty Name="sname" ColumnName="sname" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

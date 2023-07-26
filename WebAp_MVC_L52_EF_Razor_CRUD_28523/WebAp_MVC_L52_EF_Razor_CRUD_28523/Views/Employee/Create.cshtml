@@ -1,0 +1,55 @@
+﻿@model WebAp_MVC_L52_EF_Razor_CRUD_28523.Models.tblEmployee
+@{
+    ViewBag.Title = "Create";
+}
+
+
+<h2>Employee Form</h2>
+@using (Html.BeginForm("Create","Employee",FormMethod.Post))
+{
+    <table>
+        @Html.HiddenFor(x=>x.empid)
+        <tr>
+            <td>Name:</td>
+            <td>@Html.TextBoxFor(x => x.name)</td>
+        </tr>
+        <tr>
+            <td>City:</td>
+            <td>@Html.TextBoxFor(x => x.city)</td>
+        </tr>
+        <tr>
+            <td>Age:</td>
+            <td>@Html.TextBoxFor(x => x.age)</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="@ViewBag.btn" /></td>
+        </tr>
+    </table>
+    <table style="background-color:mediumaquamarine;color:black;width:800px">
+        <tr style="background-color:black;color:white">
+            <th>Emp ID</th>
+            <th>Emp Name</th>
+            <th>Emp City</th>
+            <th>Emp Age</th>
+            <th>Action</th>
+            <th>Action</th>
+        </tr>
+        @foreach (var a in ViewBag.emptbldata)
+        {
+            <tr>
+                <td>@a.empid</td>
+                @*empid these all are table column name from db*@
+                <td>@a.name</td>
+                @*name these all are table column name from db*@
+                <td>@a.city</td>
+                @*city these all are table column name from db*@
+                <td>@a.age</td>
+                @*age these all are table column name from db*@
+                <td>@Html.ActionLink("Delete", "Del", new {empid = a.empid })</td>
+                <td>@Html.ActionLink("Edit","Create", new {empid= a.empid})</td>
+            </tr>
+         }
+    </table>
+}
+

@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32516.85
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApp_MVC_L51_Razor_EF_27523", "WebApp_MVC_L51_Razor_EF_27523\WebApp_MVC_L51_Razor_EF_27523.csproj", "{8C24C67C-D1B0-4635-BFEB-79F79F7621C7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8C24C67C-D1B0-4635-BFEB-79F79F7621C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C24C67C-D1B0-4635-BFEB-79F79F7621C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C24C67C-D1B0-4635-BFEB-79F79F7621C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C24C67C-D1B0-4635-BFEB-79F79F7621C7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D64C0F4E-2260-42FF-A6BA-CA2EF34B8052}
+	EndGlobalSection
+EndGlobal

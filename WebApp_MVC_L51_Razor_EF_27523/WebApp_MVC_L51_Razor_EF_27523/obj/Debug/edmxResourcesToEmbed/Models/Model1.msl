@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DB_L51_MVC_Razor_27523ModelStoreContainer" CdmEntityContainer="DatabaseContext">
+    <EntitySetMapping Name="tblEmployees">
+      <EntityTypeMapping TypeName="DB_L51_MVC_Razor_27523Model.tblEmployee">
+        <MappingFragment StoreEntitySet="tblEmployee">
+          <ScalarProperty Name="empid" ColumnName="empid" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="age" ColumnName="age" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

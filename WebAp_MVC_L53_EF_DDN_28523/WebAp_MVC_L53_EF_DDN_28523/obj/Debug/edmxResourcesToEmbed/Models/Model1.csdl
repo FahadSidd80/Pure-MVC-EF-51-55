@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DB_L53_MVC_DDN_EF_28523Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tblEmployee">
+    <Key>
+      <PropertyRef Name="empid" />
+    </Key>
+    <Property Name="empid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="city" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="age" Type="Int32" />
+    <Property Name="country" Type="Int32" />
+    <Property Name="state" Type="Int32" />
+  </EntityType>
+  <EntityContainer Name="DatabaseContext" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tblEmployees" EntityType="Self.tblEmployee" />
+    <EntitySet Name="tblCountries" EntityType="DB_L53_MVC_DDN_EF_28523Model.tblCountry" />
+    <EntitySet Name="tblStates" EntityType="DB_L53_MVC_DDN_EF_28523Model.tblState" />
+  </EntityContainer>
+  <EntityType Name="tblCountry">
+    <Key>
+      <PropertyRef Name="cid" />
+    </Key>
+    <Property Name="cid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tblState">
+    <Key>
+      <PropertyRef Name="sid" />
+    </Key>
+    <Property Name="cid" Type="Int32" />
+    <Property Name="sid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="sname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>
